@@ -1,6 +1,8 @@
 # pepper-rag
 
-## Setup
+Note that since this is mostly a proof of concept there are a few code smells:
+1. It is assumed that client and server are ran from the same machine (i.e. the client looks for FastAPI on localhost);
+2. Pepper's IP is hardcoded into `api.py`, although it is very easy to change.
 
 Several dependencies (namely [qi](https://pypi.org/project/qi/)) rely on Linux. For this reason, this is the suggested operating system to run the project on. On Windows, WSL is supported and must be used in order to launch the server (`src/api.py`). 
 
@@ -13,6 +15,5 @@ source pepper_rag/bin/activate
 pip install -r requirements.txt # will take a long while
 ```
 
-Then, the server can be launched with `fastapi run src/api.py`. 
 
-The client (`src/client.py`) must be launched from the host OS (i.e. from Windows directly) to properly access microphones. This can be done by running `python3 src/client.py`.
+Make sure to adjust Pepper's IP in `src/api.py`. Then, the server can be launched with `fastapi run src/api.py`. The client (`src/client.py`) must be launched from the host OS (i.e. from Windows directly). This can be done by running `python3 src/client.py`, starting the recording which will then be sent to the server.

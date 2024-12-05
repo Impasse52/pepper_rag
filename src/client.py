@@ -11,6 +11,8 @@ if __name__ == "__main__":
 
     output_filename = f"./data/{datetime.now().strftime("%d%m%Y_%H%M%S")}.wav"
 
+    print("Recording...")
+    
     # --- record a spoken sentence ---
     rec = Recorder(
         config=dict(
